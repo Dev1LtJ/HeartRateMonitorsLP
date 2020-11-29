@@ -3,4 +3,11 @@
     color: rgb(13, 13, 13);
     text-align: center;
     font-weight: 700;
+    text-transform: uppercase;
+    &_left {
+        font-size: 36px;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        line-height: 1.2;
+    }
 }

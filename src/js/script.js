@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $('.carousel__inner').slick({
         speed: 1200,
-        //adaptiveHeight: true,
         prevArrow: '<button type="button" class="slick-prev"><img src="icons/arrows/left.svg"></button>',
         nextArrow: '<button type="button" class="slick-next"><img src="icons/arrows/right.svg"></button>',
         responsive: [
@@ -49,4 +48,32 @@ $(document).ready(function(){
             $('.overlay, #order').fadeIn('slow');
         })
     });
+
+    function validateForm(form) {
+        $(form).validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true,
+                }
+            },
+            messages: {
+                name: {
+                    required: "Пожалуйста, введите свое имя",
+                    minlength: jQuery.validator.format("Введите {0} символов")
+                },
+                phone: "Пожалуйста, введите свой номер телефона",
+                email: {
+                required: "Пожалуйста, введите свою почту",
+                email: "Неправильно введен адрес почты"
+                }
+            }
+        });
+    };
+
+    validateForm('#consultation-form');
+    validateForm('#consultation form');
+    validateForm('#order form');
 });
